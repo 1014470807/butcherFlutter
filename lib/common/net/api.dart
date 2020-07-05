@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:dio/dio.dart';
 import 'package:butcher/common/config/config.dart';
 import 'package:butcher/common/local/local_storage.dart';
@@ -79,7 +81,14 @@ class HttpManager {
 
     Response response;
     try {
-      response = await _dio.request(url, data: newParams, options: option);
+      print(newParams);
+      print(option.method);
+      print(option == Options(method: "get"));
+      if (option.method == 'get') {
+        response = await _dio.request(url, queryParameters: newParams, options: option);
+      } else {
+        response = await _dio.request(url, data: newParams, options: option);
+      }
     } on DioError catch (e) {
       return resultError(e);
     }

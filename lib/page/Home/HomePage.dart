@@ -145,7 +145,7 @@ class _HomePageState extends State<HomePage> with StyleBase,AutomaticKeepAliveCl
           ],
           body: TabBarView(
             children: navList.asMap().map((k, tab) => MapEntry(k, Builder(
-              builder: (context) => Jinshi(),
+              builder: (context) => wList[k],
             ),),
             ).values.toList(),
           ),

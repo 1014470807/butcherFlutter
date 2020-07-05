@@ -36,6 +36,7 @@ class _NewsPageState extends State<NewsPage> with AutomaticKeepAliveClientMixin,
           list=list;
           _loading=false;
         });
+        print(this.page);
         print(jsonEncode(list));
       }
     });
@@ -165,28 +166,29 @@ class _NewsPageState extends State<NewsPage> with AutomaticKeepAliveClientMixin,
       ),
       body: LoadingContainer(
         isLoading: _loading,
-        child: EasyRefresh.custom(
-          slivers: [
-            SliverList(
-              delegate: SliverChildBuilderDelegate((context,index){
-                return Column(
-                  children: list.asMap().map((k,v)=>
-                      MapEntry(k,wordsCard(v))
-                  ).values.toList(),
-                );
-              }),
-            )
-          ],
+        child: EasyRefresh(
+            child: Column(
+              children: list.asMap().map((k,v)=>
+                  MapEntry(k,wordsCard(v))
+              ).values.toList(),
+            ),
             footer: LoadFooter(),
             onRefresh: () async {
               this.page=0;
               this.list.clear();
+              setState(() {
+                page=page;
+                list=list;
+              });
               _Controller.finishLoad(noMore: false);
               getData();
             },
             controller: _Controller,
             onLoad: () async {
               this.page=this.page+1;
+              setState(() {
+                page=page;
+              });
               getData();
             }
         ),

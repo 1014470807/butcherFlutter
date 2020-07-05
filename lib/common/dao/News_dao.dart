@@ -10,6 +10,7 @@ class NewsDao {
       "page": page,
       "size": 10
     };
+    print(requestParams);
     var res = await httpManager.netFetch(
         Address.article(), requestParams, null, new Options(method: "get"));
     return res;
@@ -21,6 +22,7 @@ class NewsDao {
       "page": page,
       "size": 10
     };
+    //print(requestParams);
     var res = await httpManager.netFetch(
         Address.jinshi(), requestParams, null, new Options(method: "get"));
     return res;
