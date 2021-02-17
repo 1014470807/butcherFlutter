@@ -1,6 +1,7 @@
 import 'package:butcher/common/public/public.dart';
 import 'package:butcher/components/AButton/index.dart';
 import 'package:butcher/components/custom_appbar.dart';
+import 'package:lottie/lottie.dart';
 
 class LoginMethod extends StatelessWidget with StyleBase {
   @override
@@ -14,10 +15,8 @@ class LoginMethod extends StatelessWidget with StyleBase {
         child: Center(
           child: Column(children: <Widget>[
             Container(
-              margin: EdgeInsets.only(bottom: dw(100),top: dw(100)),
-              width: dw(220),
-              height: dw(220),
-              child: Image.asset('static/images/logo.jpg', fit: BoxFit.cover,),
+              margin: EdgeInsets.only(bottom: dw(100)),
+              child: Lottie.network('https://butcherhelp.oss-cn-beijing.aliyuncs.com/login.json',width: 220, height: 220),
             ),
             Container(
               child: AButton.normal(

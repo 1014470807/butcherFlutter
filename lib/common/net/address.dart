@@ -3,7 +3,7 @@
 ///地址数据
 class Address {
 
-  static const String host = "http://106.54.53.151:7001";
+  static const String host = "http://192.168.1.103:7001";
 
   ///----------------------首页----------------------
   static register() {
@@ -20,5 +20,13 @@ class Address {
 
   static jinshi() {
     return "${host}/getjinshi";
+  }
+
+  static getTodayAll() {
+    return "${host}/getTodayAll";
+  }
+
+  static getTradingNews() {
+    return "${host}/getTradingNews";
   }
 }

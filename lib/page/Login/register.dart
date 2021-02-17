@@ -6,6 +6,7 @@ import 'package:butcher/redux/login_redux.dart';
 import 'package:color_dart/color_dart.dart';
 import 'package:butcher/page/Index/index.dart';
 import 'package:butcher/common/dao/User_dao.dart';
+import 'package:lottie/lottie.dart';
 
 class Register extends StatefulWidget {
   final int experience;
@@ -40,9 +41,7 @@ class _RegisterState extends State<Register> with StyleBase {
             children: <Widget>[
               Container(
                 margin: EdgeInsets.only(bottom: dw(100)),
-                width: dw(220),
-                height: dw(220),
-                child: Image.asset('static/images/logo.jpg', fit: BoxFit.cover,),
+                child: Lottie.network('https://butcherhelp.oss-cn-beijing.aliyuncs.com/login.json',width: 220, height: 220),
               ),
 
               /// 输入手机

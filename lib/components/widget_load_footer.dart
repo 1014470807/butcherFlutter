@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_easyrefresh/easy_refresh.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:butcher/common/public/public.dart';
+import 'package:lottie/lottie.dart';
 
 class LoadFooter extends Footer {
   @override
@@ -27,7 +28,7 @@ class LoadFooter extends Footer {
       return Container(
         height: ScreenUtil().setWidth(100),
         alignment: Alignment.center,
-        child: Text('正在加载...'),
+        child: Lottie.network('https://butcherhelp.oss-cn-beijing.aliyuncs.com/apploading.json'),
       );
   }
 }

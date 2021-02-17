@@ -27,4 +27,29 @@ class NewsDao {
         Address.jinshi(), requestParams, null, new Options(method: "get"));
     return res;
   }
+
+  static getTodayAll(int page) async {
+    Map<String, dynamic> requestParams = new Map();
+    requestParams = {
+      "page": page,
+      "size": 20
+    };
+    //print(requestParams);
+    var res = await httpManager.netFetch(
+        Address.getTodayAll(), requestParams, null, new Options(method: "get"));
+    return res;
+  }
+
+  static getTradingNews (int page, int status) async {
+    Map<String, dynamic> requestParams = new Map();
+    requestParams = {
+      "page": page,
+      "size": 10,
+      "status": status
+    };
+    //print(requestParams);
+    var res = await httpManager.netFetch(
+        Address.getTradingNews(), requestParams, null, new Options(method: "get"));
+    return res;
+  }
 }

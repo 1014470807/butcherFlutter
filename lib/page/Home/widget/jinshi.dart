@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:butcher/common/dao/News_dao.dart';
 import 'package:butcher/common/public/public.dart';
 import 'package:butcher/components/widget_load_footer.dart';
+import 'package:butcher/components/widget_load_header.dart';
 import 'package:butcher/model/News/JinshiModel.dart';
 import 'package:butcher/model/result/DataJsonPage.dart';
 import 'package:flutter_easyrefresh/easy_refresh.dart';
@@ -117,7 +118,7 @@ class _JinshiState extends State<Jinshi> with StyleBase,AutomaticKeepAliveClient
       child: EasyRefresh(
         child: Card(
           elevation: 0,
-          margin: EdgeInsets.symmetric(horizontal: 15, vertical: 50),
+          margin: EdgeInsets.symmetric(horizontal: 15, vertical: 15),
           child: Stack(
             fit: StackFit.loose,
             children: <Widget>[
@@ -150,6 +151,7 @@ class _JinshiState extends State<Jinshi> with StyleBase,AutomaticKeepAliveClient
           ),
         ),
         footer: LoadFooter(),
+        header: LoadHeader(),
         onRefresh: () async {
           this.page=0;
           this.jinshi.clear();

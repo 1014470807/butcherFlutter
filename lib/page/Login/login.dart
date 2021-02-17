@@ -8,6 +8,7 @@ import 'package:butcher/page/Index/index.dart';
 import 'package:butcher/model/User/User.dart';
 import 'package:butcher/redux/user_redux.dart';
 import 'package:butcher/redux/login_redux.dart';
+import 'package:lottie/lottie.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -39,9 +40,7 @@ class _LoginState extends State<Login> with StyleBase {
             children: <Widget>[
               Container(
                 margin: EdgeInsets.only(bottom: dw(100)),
-                width: dw(220),
-                height: dw(220),
-                child: Image.asset('static/images/logo.jpg', fit: BoxFit.cover,),
+                child: Lottie.network('https://butcherhelp.oss-cn-beijing.aliyuncs.com/login.json',width: 220, height: 220),
               ),
 
               /// 输入手机

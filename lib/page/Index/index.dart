@@ -91,7 +91,7 @@ class _IndexPageState extends State<IndexPage> with SingleTickerProviderStateMix
                 color: Colors.red,
               ),
               Container(
-                color: Colors.green,
+                color: Colors.red,
               ),
               MyPage(),
             ],

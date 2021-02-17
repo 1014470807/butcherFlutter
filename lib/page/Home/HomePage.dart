@@ -3,8 +3,15 @@ import 'package:butcher/page/Home/AskPage.dart';
 import 'package:butcher/page/Home/Search.dart';
 import 'package:butcher/page/Home/Head.dart';
 import 'dart:ui';
-
+import 'dart:async';
+import 'dart:io';
 import 'package:butcher/page/Home/widget/jinshi.dart';
+import 'package:butcher/page/Home/widget/stockToday.dart';
+import 'package:mop/mop.dart';
+import 'package:butcher/page/Home/widget/tradingTab.dart';
+import 'package:butcher/page/Home/widget/currency.dart';
+import 'package:butcher/page/Home/widget/cryptocurrencies.dart';
+import 'package:butcher/page/Home/widget/futures.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -12,24 +19,21 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> with StyleBase,AutomaticKeepAliveClientMixin {
-  List<String> navList =["实时新闻","龙虎榜","板块排行","最新动态","最新资讯","最新资讯"];
+  List<String> navList =["今日热点","A股排行榜","A股动态","外汇市场","加密货币","期货市场"];
   ScrollController _scrollController = ScrollController();
   List<Widget> wList = [
     Jinshi(),
-    Container(
-      child: Text("323"),
-    ),Container(
-      child: Text("123"),
-    ),
-    Container(
-      child: Text("123"),
-    ),
-    Container(
-      child: Text("123"),
-    ),Container(
-      child: Text("123"),
-    )
+    stockToday(),
+    tradingTab(),
+    currency(),
+    cryptocurrencies(),
+    futures()
   ];
+
+  @override
+  void initState() {
+    super.initState();
+  }
 
 
   Widget barSearch() {
@@ -38,10 +42,15 @@ class _HomePageState extends State<HomePage> with StyleBase,AutomaticKeepAliveCl
         height: MediaQueryData.fromWindow(window).padding.top + dw(55),
         child: Row(
           children: <Widget>[
-            Container(
-              child: Text("123"),
-              width: dw(100),
-              margin: EdgeInsets.only(right: dw(32),left: dw(32)),
+            FlatButton(
+              child: Container(
+                child: Text("123"),
+                width: dw(100),
+                margin: EdgeInsets.only(right: dw(32),left: dw(32)),
+              ),
+              onPressed: () {
+                Mop.instance.openApplet('6029eb9cfb91860001b4e78f');
+              },
             ),
             Expanded(
               child: Container(

@@ -9,6 +9,7 @@ import 'package:redux/redux.dart';
 import 'package:butcher/redux/butcher_state.dart';
 import 'package:butcher/model/User/User.dart';
 import 'package:butcher/page/My/MyPage.dart';
+import 'package:mop/mop.dart';
 
 void main(){
   if (Platform.isAndroid) {
@@ -65,6 +66,25 @@ class MyAppState extends State<MyAppFul> with HttpErrorListener {
   void initState() {
     // TODO: implement initState
     super.initState();
+    init();
+  }
+
+  Future<void> init() async {
+    if (Platform.isIOS) {
+      //com.finogeeks.mopExample
+      final res = await Mop.instance.initialize(
+          'f8poIsvI+4oweExNTnr8bstrItuz4IMBG9hwZhwtPuE=', 'e10964fa387365d0',
+          apiServer: 'https://api.finclip.com', apiPrefix: '/api/v1/mop');
+      print(res);
+    } else if (Platform.isAndroid) {
+      //com.finogeeks.mopexample
+      final res = await Mop.instance.initialize(
+          'f8poIsvI+4oweExNTnr8bstrItuz4IMBG9hwZhwtPuE=', 'e10964fa387365d0',
+          apiServer: 'https://api.finclip.com', apiPrefix: '/api/v1/mop');
+      print(res);
+      print(111);
+    }
+    if (!mounted) return;
   }
 
   @override
