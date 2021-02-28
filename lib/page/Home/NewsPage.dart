@@ -132,6 +132,9 @@ class _NewsPageState extends State<NewsPage> with AutomaticKeepAliveClientMixin,
                     ),
                     new PopupMenuButton(
                         icon: new Icon(Icons.linear_scale, color: AppConstant.fontColor,),
+                        onSelected: (result) {
+                          ToastUtils.showToast('功能暂未开放');
+                        },
                         itemBuilder: (BuildContext context) => <PopupMenuItem<String>>[
                           // new PopupMenuItem<String>(
                           //     value: '选项一的值',

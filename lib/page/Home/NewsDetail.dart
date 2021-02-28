@@ -32,7 +32,9 @@ class _NewsDetailState extends State<NewsDetail> {
                   ),
                   title: new Text("${article.articleTitle}"),
                   subtitle: new Text("${article.articleTag}"),
-                  trailing: new RaisedButton.icon(onPressed: (){}, icon: new Icon(Icons.add, color: Colors.white), label: new Text("关注", style: new TextStyle(color: Colors.white),), color: Colors.blue,)
+                  trailing: new RaisedButton.icon(onPressed: (){
+                    ToastUtils.showToast('功能暂未开放');
+                  }, icon: new Icon(Icons.add, color: Colors.white), label: new Text("关注", style: new TextStyle(color: Colors.white),), color: Colors.blue,)
               ),
               decoration: new BoxDecoration(
                   color: AppConstant.themeColor,

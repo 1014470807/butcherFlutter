@@ -12,7 +12,7 @@ class CountdownInit extends StatefulWidget {
 class _CountdownInit extends State<CountdownInit> with StyleBase, SingleTickerProviderStateMixin {
   Animation<double> _animation;         // canvas转动动画函数
   AnimationController _controller;      // canvas转动动画控制器
-  int _time = 5;                        // 首页载入秒数
+  int _time = 3;                        // 首页载入秒数
 
   @override
   void initState() {
@@ -57,7 +57,7 @@ class _CountdownInit extends State<CountdownInit> with StyleBase, SingleTickerPr
 
   @override
   Widget build(BuildContext context) {
-    var countNum = _time - (_animation.value * 5 / 360).round();
+    var countNum = _time - (_animation.value * 3 / 360).round();
     return GestureDetector(
       onTap: _jumpIndex,
       child: Container(

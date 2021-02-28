@@ -28,6 +28,10 @@ apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 android {
     compileSdkVersion 28
 
+    def keystorePropertiesFile = rootProject.file("key.properties")
+    def keystoreProperties = new Properties()
+    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
     }
@@ -46,6 +50,7 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+
     buildTypes {
         release {
             // TODO: Add your own signing config for the release build.
@@ -53,13 +58,19 @@ android {
             signingConfig signingConfigs.debug
         }
     }
-    packagingOptions {
-        // libsdkcore.so是被加固过的，不能被压缩，否则加载动态库时会报错
-        doNotStrip "*/x86/libsdkcore.so"
-        doNotStrip "*/x86_64/libsdkcore.so"
-        doNotStrip "*/armeabi/libsdkcore.so"
-        doNotStrip "*/armeabi-v7a/libsdkcore.so"
-        doNotStrip "*/arm64-v8a/libsdkcore.so"
+
+    signingConfigs {
+        release {
+            keyAlias keystoreProperties['keyAlias']
+            keyPassword keystoreProperties['keyPassword']
+            storeFile file(keystoreProperties['storeFile'])
+            storePassword keystoreProperties['storePassword']
+        }
+    }
+    buildTypes {
+        release {
+            signingConfig signingConfigs.release
+        }
     }
 }
 

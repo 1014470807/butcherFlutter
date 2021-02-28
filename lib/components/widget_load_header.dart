@@ -21,7 +21,7 @@ class LoadHeader extends Header {
 
   LoadHeader({
     this.key,
-    this.displacement = 40.0,
+    this.displacement = 0,
     this.valueColor,
     this.backgroundColor,
     completeDuration = const Duration(seconds: 1),
@@ -141,7 +141,7 @@ class MaterialHeaderWidgetState extends State<MaterialHeaderWidget>
       child: Stack(
         children: <Widget>[
           Positioned(
-            top: 50,
+            top: isVertical ? !isReverse ? 0.0 : null : 0.0,
             bottom: isVertical ? !isReverse ? 0.0 : null : 0.0,
             left: !isVertical ? isReverse ? 0.0 : null : 0.0,
             right: !isVertical ? !isReverse ? 0.0 : null : 0.0,
