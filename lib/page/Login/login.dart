@@ -8,6 +8,7 @@ import 'package:butcher/page/Index/index.dart';
 import 'package:butcher/model/User/User.dart';
 import 'package:butcher/redux/user_redux.dart';
 import 'package:butcher/redux/login_redux.dart';
+import 'package:common_utils/common_utils.dart';
 import 'package:lottie/lottie.dart';
 
 class Login extends StatefulWidget {
@@ -40,7 +41,7 @@ class _LoginState extends State<Login> with StyleBase {
             children: <Widget>[
               Container(
                 margin: EdgeInsets.only(bottom: dw(100)),
-                child: Lottie.network('https://butcherhelp.oss-cn-beijing.aliyuncs.com/login.json',width: 220, height: 220),
+                child: Lottie.asset('static/json/login.json',width: 220, height: 220),
               ),
 
               /// 输入手机
@@ -108,17 +109,28 @@ class _LoginState extends State<Login> with StyleBase {
                     bgColor: rgba(136, 175, 213, 1),
                     color: hex('#fff'),
                     onPressed: () async {
-                      if(accountController.text!=null && passwordController.text!=null){
+                      RegExp passReg = RegExp(RegexUtil.regexUsername2);
+                      RegExp qqReg = RegExp('[0-9a-zA-Z]{4,}');
+                      if (!qqReg.hasMatch(accountController.text)) {
+                        ToastUtils.showToast('用户名最少5长度');
+                        return false;
+                      }
+                      if (!passReg.hasMatch(passwordController.text)) {
+                        ToastUtils.showToast('密码6-18位,包含字符和数字');
+                        return false;
+                      }
+                      if(accountController.text!='' && passwordController.text!=''){
                         UserDao.login(accountController.text, passwordController.text).then((res) async {
-                          //print(jsonEncode(res));
+                          print(jsonEncode(res['msg']));
+                          // var msg = jsonEncode(res['msg']);
                           User data = User.fromMap(res);
-                          //print(data);
-                          if(data.code==100){
+//                           //print(data);
+                          if (data.msg == 'Success'){
                             ToastUtils.showToast("登录成功");
 //                            print(jsonEncode(user));
                             StoreProvider.of<BUTCHERState>(context).dispatch(LoginAction(context, "account", data.data));
                           }else{
-                            ToastUtils.showToast("登录失败");
+                            ToastUtils.showToast(data.msg);
                           }
                         });
                       }

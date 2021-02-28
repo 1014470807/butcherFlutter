@@ -3,7 +3,7 @@
 ///地址数据
 class Address {
 
-  static const String host = "http://192.168.1.103:7001";
+  static const String host = "https://app.butcherhelp.cn/butcher";
 
   ///----------------------首页----------------------
   static register() {
@@ -12,6 +12,10 @@ class Address {
 
   static login() {
     return "${host}/login";
+  }
+
+  static clearLogin() {
+    return "${host}/clearLogin";
   }
 
   static article() {

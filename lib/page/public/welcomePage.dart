@@ -11,6 +11,8 @@ import 'package:redux/redux.dart';
 import 'package:butcher/redux/butcher_state.dart';
 import 'package:butcher/page/Wave/Wave.dart';
 import 'package:butcher/page/Wave/Countdown.dart';
+import 'package:lottie/lottie.dart';
+
 /// 欢迎页
 class WelcomePage extends StatefulWidget {
 
@@ -57,8 +59,8 @@ class _WelcomePageState extends State<WelcomePage> with StyleBase {
           child: Stack(
             children: <Widget>[
               Positioned(
-                right: dw(25),
-                top: dw(25),
+                right: 20,
+                top: 50,
                 child: Container(
                   child: CountdownInit(),
                 ),
@@ -66,16 +68,9 @@ class _WelcomePageState extends State<WelcomePage> with StyleBase {
               Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  Padding(padding: EdgeInsets.only(top: dw(70)),),
-                  Image.asset(
-                    'static/images/init_logo.webp',
-                    width: dw(300),
-                  ),
-                  Padding(padding: EdgeInsets.only(top: dw(70)),),
-                  Image.asset(
-                    'static/images/init_icon.png',
-                    width: dw(90),
-                  ),
+                  Padding(padding: EdgeInsets.only(top: 70)),
+                  Lottie.asset('static/json/cattle.json',width: 350, height: 350),
+                  Padding(padding: EdgeInsets.only(top: 70)),
                   WaveBtoom(),
                 ],
               ),

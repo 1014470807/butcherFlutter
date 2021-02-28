@@ -25,8 +25,8 @@ class SearchPageState extends State<SearchPage> {
             child: new TextField(
               autofocus: true,
               decoration: new InputDecoration.collapsed(
-                  hintText: "搜索比乎内容",
-                  hintStyle: new TextStyle(color: AppConstant.themeColor)
+                  hintText: "功能暂未开放",
+                  hintStyle: new TextStyle(color: AppConstant.grayColor)
               ),
             ),
           )
@@ -57,116 +57,118 @@ class SearchPageState extends State<SearchPage> {
                 children: <Widget>[
                   new Container(
                     child: new Chip(
-                      label: new FlatButton(onPressed: (){}, child: new Text("汽车关税下调",style: new TextStyle(color: AppConstant.themeColor),)),
+                      label: new FlatButton(onPressed: (){
+                        ToastUtils.showToast("功能暂未开放");
+                      }, child: new Text("今日热点",style: new TextStyle(color: AppConstant.themeColor),)),
                       backgroundColor: AppConstant.dark == true ? Colors.white10 : Colors.black12,
                     ),
                     margin: const EdgeInsets.only(left: 16.0, bottom: 16.0),
                     alignment: Alignment.topLeft,
                   ),
-                  new Container(
-                    child: new Chip(
-                      label: new FlatButton(onPressed: (){}, child: new Text("李彦宏传闻辟谣",style: new TextStyle(color: AppConstant.themeColor))),
-                      backgroundColor: AppConstant.dark == true ? Colors.white10 : Colors.black12,
-                    ),
-                    margin: const EdgeInsets.only(left: 16.0, bottom: 16.0),
-                    alignment: Alignment.topLeft,
-                  ),
+                  // new Container(
+                  //   child: new Chip(
+                  //     label: new FlatButton(onPressed: (){}, child: new Text("李彦宏传闻辟谣",style: new TextStyle(color: AppConstant.themeColor))),
+                  //     backgroundColor: AppConstant.dark == true ? Colors.white10 : Colors.black12,
+                  //   ),
+                  //   margin: const EdgeInsets.only(left: 16.0, bottom: 16.0),
+                  //   alignment: Alignment.topLeft,
+                  // ),
                 ],
               ),
-              new Row(
-                children: <Widget>[
-                  new Container(
-                    child: new Chip(
-                      label: new FlatButton(onPressed: (){}, child: new Text("小米8",style: new TextStyle(color: AppConstant.themeColor))),
-                      backgroundColor: AppConstant.dark == true ? Colors.white10 : Colors.black12,
-                    ),
-                    margin: const EdgeInsets.only(left: 16.0, bottom: 16.0),
-                    alignment: Alignment.topLeft,
-                  ),
-                  new Container(
-                    child: new Chip(
-                      label: new FlatButton(onPressed: (){}, child: new Text("超时空同居",style: new TextStyle(color: AppConstant.themeColor))),
-                      backgroundColor: AppConstant.dark == true ? Colors.white10 : Colors.black12,
-                    ),
-                    margin: const EdgeInsets.only(left: 16.0, bottom: 16.0),
-                    alignment: Alignment.topLeft,
-                  ),
-                ],
-              ),
-              new Container(
-                child: new Text("搜索历史", style: new TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0)),
-                margin: const EdgeInsets.only(left: 16.0, bottom: 16.0),
-                alignment: Alignment.topLeft,
-              ),
-              new Container(
-                child: new Row(
-                  children: <Widget>[
-                    new Container(
-                      child: new Icon(Icons.access_time, color: AppConstant.themeColor, size: 16.0),
-                      margin: const EdgeInsets.only(right: 12.0),
-                    ),
-                    new Expanded(
-                      child: new Container(
-                        child: new Text("业余兴趣", style: new TextStyle( color: AppConstant.themeColor, fontSize: 14.0),),
-                      ),
-                    ),
-                    new Container(
-                      child: new Icon(Icons.clear, color: AppConstant.themeColor, size: 16.0),
-                    )
-                  ],
-                ),
-                margin: const EdgeInsets.only(left: 16.0, right: 16.0, bottom: 10.0),
-                padding: const EdgeInsets.only(bottom: 10.0),
-                decoration: new BoxDecoration(
-                    border: new BorderDirectional(bottom: new BorderSide(color: AppConstant.dark == true ?  Colors.white12 : Colors.black12))
-                ),
-              ),
-              new Container(
-                child: new Row(
-                  children: <Widget>[
-                    new Container(
-                      child: new Icon(Icons.access_time, color: AppConstant.themeColor, size: 16.0),
-                      margin: const EdgeInsets.only(right: 12.0),
-                    ),
-                    new Expanded(
-                      child: new Container(
-                        child: new Text("三体", style: new TextStyle( color: AppConstant.themeColor, fontSize: 14.0),),
-                      ),
-                    ),
-                    new Container(
-                      child: new Icon(Icons.clear, color: AppConstant.themeColor, size: 16.0),
-                    )
-                  ],
-                ),
-                margin: const EdgeInsets.only(left: 16.0, right: 16.0, bottom: 10.0),
-                padding: const EdgeInsets.only(bottom: 10.0),
-                decoration: new BoxDecoration(
-                    border: new BorderDirectional(bottom: new BorderSide(color: AppConstant.dark == true ?  Colors.white12 : Colors.black12))
-                ),
-              ),
-              new Container(
-                child: new Row(
-                  children: <Widget>[
-                    new Container(
-                      child: new Icon(Icons.access_time, color: AppConstant.themeColor, size: 16.0),
-                      margin: const EdgeInsets.only(right: 12.0),
-                    ),
-                    new Expanded(
-                      child: new Container(
-                        child: new Text("人类未来", style: new TextStyle( color: AppConstant.themeColor, fontSize: 14.0),),
-                      ),
-                    ),
-                    new Container(
-                      child: new Icon(Icons.clear, color: AppConstant.themeColor, size: 16.0),
-                    )
-                  ],
-                ),
-                margin: const EdgeInsets.only(left: 16.0, right: 16.0, bottom: 10.0),
-                padding: const EdgeInsets.only(bottom: 10.0),
-                decoration: new BoxDecoration(
-                    border: new BorderDirectional(bottom: new BorderSide(color: AppConstant.dark == true ?  Colors.white12 : Colors.black12))
-                ),
-              ),
+              // new Row(
+              //   children: <Widget>[
+              //     new Container(
+              //       child: new Chip(
+              //         label: new FlatButton(onPressed: (){}, child: new Text("小米8",style: new TextStyle(color: AppConstant.themeColor))),
+              //         backgroundColor: AppConstant.dark == true ? Colors.white10 : Colors.black12,
+              //       ),
+              //       margin: const EdgeInsets.only(left: 16.0, bottom: 16.0),
+              //       alignment: Alignment.topLeft,
+              //     ),
+              //     new Container(
+              //       child: new Chip(
+              //         label: new FlatButton(onPressed: (){}, child: new Text("超时空同居",style: new TextStyle(color: AppConstant.themeColor))),
+              //         backgroundColor: AppConstant.dark == true ? Colors.white10 : Colors.black12,
+              //       ),
+              //       margin: const EdgeInsets.only(left: 16.0, bottom: 16.0),
+              //       alignment: Alignment.topLeft,
+              //     ),
+              //   ],
+              // ),
+              // new Container(
+              //   child: new Text("搜索历史", style: new TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0)),
+              //   margin: const EdgeInsets.only(left: 16.0, bottom: 16.0),
+              //   alignment: Alignment.topLeft,
+              // ),
+              // new Container(
+              //   child: new Row(
+              //     children: <Widget>[
+              //       new Container(
+              //         child: new Icon(Icons.access_time, color: AppConstant.themeColor, size: 16.0),
+              //         margin: const EdgeInsets.only(right: 12.0),
+              //       ),
+              //       new Expanded(
+              //         child: new Container(
+              //           child: new Text("业余兴趣", style: new TextStyle( color: AppConstant.themeColor, fontSize: 14.0),),
+              //         ),
+              //       ),
+              //       new Container(
+              //         child: new Icon(Icons.clear, color: AppConstant.themeColor, size: 16.0),
+              //       )
+              //     ],
+              //   ),
+              //   margin: const EdgeInsets.only(left: 16.0, right: 16.0, bottom: 10.0),
+              //   padding: const EdgeInsets.only(bottom: 10.0),
+              //   decoration: new BoxDecoration(
+              //       border: new BorderDirectional(bottom: new BorderSide(color: AppConstant.dark == true ?  Colors.white12 : Colors.black12))
+              //   ),
+              // ),
+              // new Container(
+              //   child: new Row(
+              //     children: <Widget>[
+              //       new Container(
+              //         child: new Icon(Icons.access_time, color: AppConstant.themeColor, size: 16.0),
+              //         margin: const EdgeInsets.only(right: 12.0),
+              //       ),
+              //       new Expanded(
+              //         child: new Container(
+              //           child: new Text("三体", style: new TextStyle( color: AppConstant.themeColor, fontSize: 14.0),),
+              //         ),
+              //       ),
+              //       new Container(
+              //         child: new Icon(Icons.clear, color: AppConstant.themeColor, size: 16.0),
+              //       )
+              //     ],
+              //   ),
+              //   margin: const EdgeInsets.only(left: 16.0, right: 16.0, bottom: 10.0),
+              //   padding: const EdgeInsets.only(bottom: 10.0),
+              //   decoration: new BoxDecoration(
+              //       border: new BorderDirectional(bottom: new BorderSide(color: AppConstant.dark == true ?  Colors.white12 : Colors.black12))
+              //   ),
+              // ),
+              // new Container(
+              //   child: new Row(
+              //     children: <Widget>[
+              //       new Container(
+              //         child: new Icon(Icons.access_time, color: AppConstant.themeColor, size: 16.0),
+              //         margin: const EdgeInsets.only(right: 12.0),
+              //       ),
+              //       new Expanded(
+              //         child: new Container(
+              //           child: new Text("人类未来", style: new TextStyle( color: AppConstant.themeColor, fontSize: 14.0),),
+              //         ),
+              //       ),
+              //       new Container(
+              //         child: new Icon(Icons.clear, color: AppConstant.themeColor, size: 16.0),
+              //       )
+              //     ],
+              //   ),
+              //   margin: const EdgeInsets.only(left: 16.0, right: 16.0, bottom: 10.0),
+              //   padding: const EdgeInsets.only(bottom: 10.0),
+              //   decoration: new BoxDecoration(
+              //       border: new BorderDirectional(bottom: new BorderSide(color: AppConstant.dark == true ?  Colors.white12 : Colors.black12))
+              //   ),
+              // ),
             ],
           ),
         )

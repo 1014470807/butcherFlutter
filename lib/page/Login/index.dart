@@ -16,7 +16,7 @@ class LoginMethod extends StatelessWidget with StyleBase {
           child: Column(children: <Widget>[
             Container(
               margin: EdgeInsets.only(bottom: dw(100)),
-              child: Lottie.network('https://butcherhelp.oss-cn-beijing.aliyuncs.com/login.json',width: 220, height: 220),
+              child: Lottie.asset('static/json/login.json',width: 220, height: 220),
             ),
             Container(
               child: AButton.normal(

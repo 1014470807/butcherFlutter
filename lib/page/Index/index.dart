@@ -28,7 +28,7 @@ class _IndexPageState extends State<IndexPage> with SingleTickerProviderStateMix
   void initState() {
     // TODO: implement initState
     super.initState();
-    tabController = TabController(vsync: this, length: 5)..addListener((){
+    tabController = TabController(vsync: this, length: 3)..addListener((){
       setState(() {
         _page=tabController.index;
       });
@@ -64,10 +64,8 @@ class _IndexPageState extends State<IndexPage> with SingleTickerProviderStateMix
             index: _page,
             height: 50.0,
             items: <Widget>[
-              Icon(Icons.add, size: 30,color: Colors.blue,),
-              Icon(Icons.list, size: 30,color: Colors.blue,),
-              Icon(Icons.compare_arrows, size: 30,color: Colors.blue,),
-              Icon(Icons.call_split, size: 30,color: Colors.blue,),
+              Icon(Icons.account_balance_rounded, size: 30,color: Colors.blue,),
+              Icon(Icons.auto_stories, size: 30,color: Colors.blue,),
               Icon(Icons.perm_identity, size: 30,color: Colors.blue,),
             ],
             color: Colors.white,
@@ -87,12 +85,6 @@ class _IndexPageState extends State<IndexPage> with SingleTickerProviderStateMix
             children: <Widget>[
               NewsPage(),
               HomePage(),
-              Container(
-                color: Colors.red,
-              ),
-              Container(
-                color: Colors.red,
-              ),
               MyPage(),
             ],
           )

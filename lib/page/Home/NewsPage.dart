@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:butcher/common/public/public.dart';
 import 'package:butcher/common/dao/News_dao.dart';
+import 'package:butcher/components/widget_load_header.dart';
 import 'package:butcher/model/News/Article.dart';
 import 'package:flutter_easyrefresh/easy_refresh.dart';
 import 'package:butcher/components/widget_load_footer.dart';
@@ -67,15 +68,15 @@ class _NewsPageState extends State<NewsPage> with AutomaticKeepAliveClientMixin,
     Widget markWidget;
     markWidget = new Row(
       children: <Widget>[
-        new Expanded(
-          flex: 2,
-          child: new Container(
-            child: new Text(
-                "这是内容",
-                style: new TextStyle(height: 1.3, color: AppConstant.fontColor)
-            ),
-          ),
-        ),
+        // new Expanded(
+        //   flex: 2,
+        //   child: new Container(
+        //     child: new Text(
+        //         "这是内容",
+        //         style: new TextStyle(height: 1.3, color: AppConstant.fontColor)
+        //     ),
+        //   ),
+        // ),
 //        new Expanded(
 //            flex: 1,
 //            child: new AspectRatio(
@@ -132,14 +133,14 @@ class _NewsPageState extends State<NewsPage> with AutomaticKeepAliveClientMixin,
                     new PopupMenuButton(
                         icon: new Icon(Icons.linear_scale, color: AppConstant.fontColor,),
                         itemBuilder: (BuildContext context) => <PopupMenuItem<String>>[
-                          new PopupMenuItem<String>(
-                              value: '选项一的值',
-                              child: new Text('屏蔽这个问题')
-                          ),
-                          new PopupMenuItem<String>(
-                              value: '选项二的值',
-                              child: new Text('取消关注 learner')
-                          ),
+                          // new PopupMenuItem<String>(
+                          //     value: '选项一的值',
+                          //     child: new Text('屏蔽这个问题')
+                          // ),
+                          // new PopupMenuItem<String>(
+                          //     value: '选项二的值',
+                          //     child: new Text('取消关注 learner')
+                          // ),
                           new PopupMenuItem<String>(
                               value: '选项二的值',
                               child: new Text("举报")
@@ -173,6 +174,7 @@ class _NewsPageState extends State<NewsPage> with AutomaticKeepAliveClientMixin,
               ).values.toList(),
             ),
             footer: LoadFooter(),
+            header: LoadHeader(),
             onRefresh: () async {
               this.page=0;
               this.list.clear();

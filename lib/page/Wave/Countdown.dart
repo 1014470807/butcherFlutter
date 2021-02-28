@@ -61,13 +61,13 @@ class _CountdownInit extends State<CountdownInit> with StyleBase, SingleTickerPr
     return GestureDetector(
       onTap: _jumpIndex,
       child: Container(
-        width: dw(50),
-        height: dw(50),
+        width: 40,
+        height: 40,
         decoration: ShapeDecoration(
           color: Color.fromARGB(70, 0, 0, 0),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.all(
-              Radius.circular(dw(50)),
+              Radius.circular(40),
             ),
           ),
         ),

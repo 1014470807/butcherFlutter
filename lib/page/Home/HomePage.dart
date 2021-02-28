@@ -7,11 +7,12 @@ import 'dart:async';
 import 'dart:io';
 import 'package:butcher/page/Home/widget/jinshi.dart';
 import 'package:butcher/page/Home/widget/stockToday.dart';
-import 'package:mop/mop.dart';
+// import 'package:mop/mop.dart';
 import 'package:butcher/page/Home/widget/tradingTab.dart';
 import 'package:butcher/page/Home/widget/currency.dart';
 import 'package:butcher/page/Home/widget/cryptocurrencies.dart';
 import 'package:butcher/page/Home/widget/futures.dart';
+import 'package:lottie/lottie.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -42,15 +43,14 @@ class _HomePageState extends State<HomePage> with StyleBase,AutomaticKeepAliveCl
         height: MediaQueryData.fromWindow(window).padding.top + dw(55),
         child: Row(
           children: <Widget>[
-            FlatButton(
-              child: Container(
-                child: Text("123"),
-                width: dw(100),
-                margin: EdgeInsets.only(right: dw(32),left: dw(32)),
+            Container(
+              margin: EdgeInsets.only(right: 10,left: 10),
+              child: Row(
+                children: [
+                  Lottie.asset('static/json/login.json',width: 30, height: 30),
+                  Text("屠夫")
+                ],
               ),
-              onPressed: () {
-                Mop.instance.openApplet('6029eb9cfb91860001b4e78f');
-              },
             ),
             Expanded(
               child: Container(
@@ -72,7 +72,7 @@ class _HomePageState extends State<HomePage> with StyleBase,AutomaticKeepAliveCl
                               size: 16.0
                           ),
                           label: new Text(
-                            "坚果R1摄像头损坏",
+                            "请选择你查询的内容",
                             style: new TextStyle(color: AppConstant.themeColor),
                           ),
                         )

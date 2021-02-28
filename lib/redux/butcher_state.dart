@@ -15,9 +15,9 @@ import 'package:redux/redux.dart';
 @immutable
 class BUTCHERState {
   ///用户信息
-  final UserBean userInfo;
+  UserBean userInfo;
   ///是否登录
-  final bool login;
+  bool login;
 
   ///构造方法
   BUTCHERState({this.userInfo,this.login});

@@ -25,7 +25,7 @@ class AppConstant{
   static Color themeColor = Color(0xFF222222);
   static Color theme2Color = Color(0xFFFFFFFF);
   static Color fontColor = Colors.white30;
-  static int tabIndex = 3;
+  static int tabIndex = 0;
   static ThemeData themeData = new ThemeData.dark();
   static bool dark = true;
   static const selectTabText = TextStyle(

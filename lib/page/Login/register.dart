@@ -6,6 +6,7 @@ import 'package:butcher/redux/login_redux.dart';
 import 'package:color_dart/color_dart.dart';
 import 'package:butcher/page/Index/index.dart';
 import 'package:butcher/common/dao/User_dao.dart';
+import 'package:common_utils/common_utils.dart';
 import 'package:lottie/lottie.dart';
 
 class Register extends StatefulWidget {
@@ -41,7 +42,7 @@ class _RegisterState extends State<Register> with StyleBase {
             children: <Widget>[
               Container(
                 margin: EdgeInsets.only(bottom: dw(100)),
-                child: Lottie.network('https://butcherhelp.oss-cn-beijing.aliyuncs.com/login.json',width: 220, height: 220),
+                child: Lottie.asset('static/json/login.json',width: 220, height: 220),
               ),
 
               /// 输入手机
@@ -113,7 +114,17 @@ class _RegisterState extends State<Register> with StyleBase {
                     bgColor: rgba(136, 175, 213, 1),
                     color: hex('#fff'),
                     onPressed: ()  async {
-                      if(accountController.text!=null && passwordController.text!=null){
+                      RegExp passReg = RegExp(RegexUtil.regexUsername2);
+                      RegExp qqReg = RegExp('[0-9a-zA-Z]{4,}');
+                      if (!qqReg.hasMatch(accountController.text)) {
+                        ToastUtils.showToast('用户名最少5长度');
+                        return false;
+                      }
+                      if (!passReg.hasMatch(passwordController.text)) {
+                        ToastUtils.showToast('密码6-18位,包含字符和数字');
+                        return false;
+                      }
+                      if(accountController.text!='' && passwordController.text!=''){
                         UserDao.register(accountController.text, passwordController.text,this.experience).then((res) async {
                           //print(jsonEncode(res));
                           User data = User.fromMap(res);
@@ -145,9 +156,7 @@ class _RegisterState extends State<Register> with StyleBase {
                           color: Color.fromRGBO(85, 122, 157, 1),
                           fontSize: dw(20)
                       ),),
-                      onTap: () => {
-
-                      },
+                      onTap: () => {},
                     )
                   ],),
               )

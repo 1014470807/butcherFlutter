@@ -1,6 +1,13 @@
+import 'dart:convert';
+
+import 'package:butcher/common/dao/User_dao.dart';
 import 'package:butcher/common/public/public.dart';
 import 'package:butcher/components/AButton/index.dart';
 import 'package:butcher/components/custom_appbar.dart';
+import 'package:butcher/model/User/User.dart';
+import 'package:butcher/redux/login_redux.dart';
+import 'package:butcher/redux/user_redux.dart';
+import 'package:lottie/lottie.dart';
 
 class MyPage extends StatefulWidget {
   static final String sName = "my";
@@ -29,22 +36,22 @@ class _MyPageState extends State<MyPage> with StyleBase {
             },
             child: new Row(
               children: <Widget>[
-                new Container(
-                  child: new Icon(Icons.search, size: 18.0,),
-                  margin: const EdgeInsets.only(right: 26.0),
-                ),
+                // new Container(
+                //   child: new Icon(Icons.search, size: 18.0,),
+                //   margin: const EdgeInsets.only(right: 26.0),
+                // ),
                 new Expanded(
                     child: new Container(
-                      child: new Text("搜索知乎内容"),
+                      child: new Text("个人中心"),
                     )
                 ),
-                new Container(
-                  child: new FlatButton(
-                    onPressed: (){},
-                    child: new Icon(Icons.settings_overscan, size: 18.0),
-                  ),
-                  width: 40.0,
-                ),
+                // new Container(
+                //   child: new FlatButton(
+                //     onPressed: (){},
+                //     child: new Icon(Icons.settings_overscan, size: 18.0),
+                //   ),
+                //   width: 40.0,
+                // ),
               ],
             )
         ),
@@ -61,7 +68,7 @@ class _MyPageState extends State<MyPage> with StyleBase {
         if (store.state.userInfo != null) {
           return new FlatButton(
               onPressed: (){
-                NavigatorUtils.goLoginMethod(context);
+                // NavigatorUtils.goLoginMethod(context);
               },
               child: new Container(
                 child: ListTile(
@@ -82,7 +89,7 @@ class _MyPageState extends State<MyPage> with StyleBase {
                 ),
               )
           );
-        }else{
+        } else{
           return new FlatButton(
               onPressed: (){
                 NavigatorUtils.goLoginMethod(context);
@@ -90,6 +97,7 @@ class _MyPageState extends State<MyPage> with StyleBase {
               child: new Container(
                 child: ListTile(
                   leading: new Container(
+                    // child: Lottie.network('https://butcherhelp.oss-cn-beijing.aliyuncs.com/person.json',width: 30, height: 30),
                     child: new CircleAvatar(
                         backgroundImage: new NetworkImage("https://pic1.zhimg.com/v2-ec7ed574da66e1b495fcad2cc3d71cb9_xl.jpg"),
                         radius: 20.0
@@ -132,13 +140,13 @@ class _MyPageState extends State<MyPage> with StyleBase {
                 new Container(
                   width: (MediaQuery.of(context).size.width - 6.0) / 4,
                   child: new FlatButton (
-                      onPressed: (){},
+                      onPressed: (){ToastUtils.showToast("功能暂未开放");},
                       child: new Container(
                         height: 50.0,
                         child: new Column(
                           children: <Widget>[
                             new Container(
-                              child: new Text("57", style: new TextStyle(fontSize: 16.0, color: AppConstant.theme2Color),),
+                              child: new Text("0", style: new TextStyle(fontSize: 16.0, color: AppConstant.theme2Color),),
                             ),
                             new Container(
                               child: new Text("我的创作", style: new TextStyle(fontSize: 12.0, color: AppConstant.theme2Color),),
@@ -160,13 +168,13 @@ class _MyPageState extends State<MyPage> with StyleBase {
                 new Container(
                   width: (MediaQuery.of(context).size.width - 6.0) / 4,
                   child: new FlatButton(
-                      onPressed: (){},
+                      onPressed: (){ToastUtils.showToast("功能暂未开放");},
                       child: new Container(
                         height: 50.0,
                         child: new Column(
                           children: <Widget>[
                             new Container(
-                              child: new Text("210", style: new TextStyle(fontSize: 16.0, color: AppConstant.theme2Color),),
+                              child: new Text("0", style: new TextStyle(fontSize: 16.0, color: AppConstant.theme2Color),),
                             ),
                             new Container(
                               child: new Text("关注", style: new TextStyle(fontSize: 12.0, color: AppConstant.theme2Color),),
@@ -188,13 +196,13 @@ class _MyPageState extends State<MyPage> with StyleBase {
                 new Container(
                   width: (MediaQuery.of(context).size.width - 6.0) / 4,
                   child: new FlatButton(
-                      onPressed: (){},
+                      onPressed: (){ToastUtils.showToast("功能暂未开放");},
                       child: new Container(
                         height: 50.0,
                         child: new Column(
                           children: <Widget>[
                             new Container(
-                              child: new Text("18", style: new TextStyle(fontSize: 16.0, color: AppConstant.theme2Color),),
+                              child: new Text("0", style: new TextStyle(fontSize: 16.0, color: AppConstant.theme2Color),),
                             ),
                             new Container(
                               child: new Text("我的收藏", style: new TextStyle(fontSize: 12.0, color: AppConstant.theme2Color),),
@@ -216,13 +224,14 @@ class _MyPageState extends State<MyPage> with StyleBase {
                 new Container(
                     width: (MediaQuery.of(context).size.width - 6.0) / 4,
                     child: new FlatButton(
-                        onPressed: (){},
+                        onPressed: (){ToastUtils.showToast("功能暂未开放");},
+                        padding: EdgeInsets.all(0),
                         child: new Container(
                           height: 50.0,
                           child: new Column(
                             children: <Widget>[
                               new Container(
-                                child: new Text("33", style: new TextStyle(fontSize: 16.0, color: AppConstant.theme2Color),),
+                                child: new Text("0", style: new TextStyle(fontSize: 16.0, color: AppConstant.theme2Color),),
                               ),
                               new Container(
                                 child: new Text("最近浏览", style: new TextStyle(fontSize: 12.0, color: AppConstant.theme2Color),),
@@ -244,7 +253,7 @@ class _MyPageState extends State<MyPage> with StyleBase {
     return new Container(
       color: AppConstant.themeColor,
       margin: const EdgeInsets.only(top: 6.0, bottom: 6.0),
-      padding: const EdgeInsets.only(top: 12.0, bottom: 8.0),
+      padding: const EdgeInsets.only(top: 20.0, bottom: 20.0),
       child: new Column(
         children: <Widget>[
           new Container(
@@ -254,7 +263,7 @@ class _MyPageState extends State<MyPage> with StyleBase {
                 new Container(
                   width: MediaQuery.of(context).size.width / 4,
                   child: new FlatButton(
-                      onPressed: (){},
+                      onPressed: (){ToastUtils.showToast("功能暂未开放");},
                       child: new Container(
                         child: new Column(
                           children: <Widget>[
@@ -277,7 +286,7 @@ class _MyPageState extends State<MyPage> with StyleBase {
                 new Container(
                   width: MediaQuery.of(context).size.width / 4,
                   child: new FlatButton(
-                      onPressed: (){},
+                      onPressed: (){ToastUtils.showToast("功能暂未开放");},
                       child: new Container(
                         child: new Column(
                           children: <Widget>[
@@ -300,7 +309,7 @@ class _MyPageState extends State<MyPage> with StyleBase {
                 new Container(
                   width: MediaQuery.of(context).size.width / 4,
                   child: new FlatButton(
-                      onPressed: (){},
+                      onPressed: (){ToastUtils.showToast("功能暂未开放");},
                       child: new Container(
                         child: new Column(
                           children: <Widget>[
@@ -323,7 +332,7 @@ class _MyPageState extends State<MyPage> with StyleBase {
                 new Container(
                   width: MediaQuery.of(context).size.width / 4,
                   child: new FlatButton(
-                      onPressed: (){},
+                      onPressed: (){ToastUtils.showToast("功能暂未开放");},
                       child: new Container(
                         child: new Column(
                           children: <Widget>[
@@ -354,7 +363,7 @@ class _MyPageState extends State<MyPage> with StyleBase {
                 new Container(
                   width: MediaQuery.of(context).size.width / 4,
                   child: new FlatButton(
-                      onPressed: (){},
+                      onPressed: (){ToastUtils.showToast("功能暂未开放");},
                       child: new Container(
                         child: new Column(
                           children: <Widget>[
@@ -377,7 +386,7 @@ class _MyPageState extends State<MyPage> with StyleBase {
                 new Container(
                   width: MediaQuery.of(context).size.width / 4,
                   child: new FlatButton(
-                      onPressed: (){},
+                      onPressed: (){ToastUtils.showToast("功能暂未开放");},
                       child: new Container(
                         child: new Column(
                           children: <Widget>[
@@ -400,7 +409,7 @@ class _MyPageState extends State<MyPage> with StyleBase {
                 new Container(
                   width: MediaQuery.of(context).size.width / 4,
                   child: new FlatButton(
-                      onPressed: (){},
+                      onPressed: (){ToastUtils.showToast("功能暂未开放");},
                       child: new Container(
                         child: new Column(
                           children: <Widget>[
@@ -889,37 +898,37 @@ class _MyPageState extends State<MyPage> with StyleBase {
   @override
   Widget build(BuildContext context) {
     return StoreBuilder<BUTCHERState>(
-        builder: (context, store) {
+      builder: (context, store) {
       return Scaffold(
           appBar: new AppBar(
             title: barSearch(),
           ),
           drawer: Container(
             color: Colors.white,
-            width: dw(438),
+            width: 300,
             child: Stack(
               children: <Widget>[
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Container(
-                      child: Container(
-                        padding: EdgeInsets.only(top: dh(60),bottom: dh(52),left: dw(32)),
-                        child: Text("设置",style: TextStyle(fontSize: ds(34),fontWeight: FontWeight.w400),),
-                      ),
-                    ),
-                  ],
-                ),
+                // Column(
+                //   crossAxisAlignment: CrossAxisAlignment.start,
+                //   children: <Widget>[
+                //     Container(
+                //       child: Container(
+                //         padding: EdgeInsets.only(top: dh(60),bottom: 50),
+                //         child: Text("设置",style: TextStyle(fontSize: 30,fontWeight: FontWeight.w400),),
+                //       ),
+                //     ),
+                //   ],
+                // ),
                 Positioned(
-                  bottom: dh(40),
+                  bottom: 40,
                   right: dw(70),
                   child: Row(
                     children: <Widget>[
                       Container(
-                        width: dw(300),
-                        height: dh(88),
+                        width: 200,
+                        height: 58,
                         child: ClipRRect(
-                          borderRadius: BorderRadius.circular(ds(44)),
+                          borderRadius: BorderRadius.circular(30),
                           child: FlatButton(
                             onPressed: () async {
                               if(store.state.userInfo!=null){
@@ -939,7 +948,20 @@ class _MyPageState extends State<MyPage> with StyleBase {
                                         ),
                                         FlatButton(
                                           child: Text('确认'),
-                                          onPressed: () {
+                                          onPressed: () async {
+                                            print(await LocalStorage.get(Config.TOKEN_KEY));
+                                            UserDao.clearLogin(store.state.userInfo.userid).then((res) async {
+                                              // DataJson data = DataJson.fromMap(res);
+                                              print(jsonEncode(res));
+                                              UserDao.clearAll(store);
+                                              // store.dispatch(new UpdateUserAction(new UserBean()));
+                                              StoreProvider.of<BUTCHERState>(context).state.userInfo = null;
+                                              // store.dispatch(LoginAction(context, "account", new UserBean()));
+                                              store.dispatch(new LogoutAction(context, false));
+                                              ToastUtils.showToast('清除登录成功');
+                                              Navigator.pop(context);
+                                              setState(() {});
+                                            });
                                             Navigator.pop(context);
                                           },
                                         ),
@@ -948,19 +970,20 @@ class _MyPageState extends State<MyPage> with StyleBase {
                                   },
                                 );
                               }else{
+                                Navigator.pop(context);
                                 NavigatorUtils.goLogin(context);
                               }
                             },
                             child: store.state.userInfo!=null ? Container(
-                              width: dw(300),
-                              height: dh(88),
+                              width: 200,
+                              height: 88,
                               alignment: Alignment.center,
-                              child: Text("退出登录",style: TextStyle(letterSpacing: dw(4),fontSize: ds(AppConstant.defalutSize)),),
+                              child: Text("退出登录",style: TextStyle(letterSpacing: 3,fontSize: 16, color: Colors.black),),
                             ) : Container(
-                              width: dw(300),
-                              height: dh(88),
+                              width: 200,
+                              height: 88,
                               alignment: Alignment.center,
-                              child: Text("立即登录",style: TextStyle(letterSpacing: dw(4),fontSize: ds(AppConstant.defalutSize)),),
+                              child: Text("立即登录",style: TextStyle(letterSpacing: 3,fontSize: 16, color: Colors.black),),
                             ),
                           ),
                         ),
@@ -981,9 +1004,9 @@ class _MyPageState extends State<MyPage> with StyleBase {
                 children: <Widget>[
                   myInfoCard(),
                   myServiceCard(),
-                  settingCard(),
-                  videoCard(),
-                  ideaCard()
+                  // settingCard(),
+                  // videoCard(),
+                  // ideaCard()
                 ],
               ),
             ),

@@ -46,76 +46,76 @@ class _NewsDetailState extends State<NewsDetail> {
           ],
         ),
       ),
-      bottomNavigationBar: new BottomAppBar(
-          child: new Container(
-            height: 50.0,
-            child: new Row(
-              children: <Widget>[
-                new Container(
-                  child: new FlatButton.icon(onPressed: (){}, label: new Text("赞同 10 K"), color: Colors.white10, icon: new Icon(Icons.arrow_drop_up),),
-                  margin: new EdgeInsets.only(left: 16.0),
-                  height: 30.0,
-                ),
-                new Container(
-                  child: new IconButton(onPressed: (){}, icon: new Icon(Icons.arrow_drop_down),padding: const EdgeInsets.all(0.0)),
-                  margin: new EdgeInsets.only(left: 8.0),
-                  height: 30.0,
-                  decoration: new BoxDecoration(
-                    borderRadius: const BorderRadius.all(const Radius.circular(2.0)),
-                    color: Colors.white10,
-                  ),
-                ),
-                new Expanded(
-                    child: new Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        new IconButton(
-                            onPressed: (){ print("icon");},
-                            icon: new Container(
-                              child: new Column(
-                                children: <Widget>[
-                                  new Icon(Icons.favorite, size: 18.0, color: AppConstant.fontColor,),
-                                  new Text("感谢", style: new TextStyle(fontSize: 10.0, color: AppConstant.fontColor),)
-                                ],
-                              ),
-                              margin: const EdgeInsets.only(),
-                              height: 30.0,
-                            )
-                        ),
-                        new IconButton(
-                            onPressed: (){ print("icon");},
-                            icon: new Container(
-                              child: new Column(
-                                children: <Widget>[
-                                  new Icon(Icons.star, size: 18.0, color: AppConstant.fontColor,),
-                                  new Text("收藏", style: new TextStyle(fontSize: 10.0, color: AppConstant.fontColor),)
-                                ],
-                              ),
-                              margin: const EdgeInsets.only(),
-                              height: 30.0,
-                            )
-                        ),
-                        new IconButton(
-                            onPressed: (){ print("icon");},
-                            icon: new Container(
-                              child: new Column(
-                                children: <Widget>[
-                                  new Icon(Icons.mode_comment, size: 18.0, color: AppConstant.fontColor,),
-                                  new Text("345", style: new TextStyle(fontSize: 10.0, color: AppConstant.fontColor),)
-                                ],
-                              ),
-                              margin: const EdgeInsets.only(),
-                              height: 30.0,
-                            )
-                        ),
-                      ],
-                    )
-                )
-              ],
-            ),
-            color: AppConstant.themeColor,
-          )
-      ),
+      // bottomNavigationBar: new BottomAppBar(
+      //     child: new Container(
+      //       height: 50.0,
+      //       child: new Row(
+      //         children: <Widget>[
+      //           new Container(
+      //             child: new FlatButton.icon(onPressed: (){}, label: new Text("赞同 10 K"), color: Colors.white10, icon: new Icon(Icons.arrow_drop_up),),
+      //             margin: new EdgeInsets.only(left: 16.0),
+      //             height: 30.0,
+      //           ),
+      //           new Container(
+      //             child: new IconButton(onPressed: (){}, icon: new Icon(Icons.arrow_drop_down),padding: const EdgeInsets.all(0.0)),
+      //             margin: new EdgeInsets.only(left: 8.0),
+      //             height: 30.0,
+      //             decoration: new BoxDecoration(
+      //               borderRadius: const BorderRadius.all(const Radius.circular(2.0)),
+      //               color: Colors.white10,
+      //             ),
+      //           ),
+      //           new Expanded(
+      //               child: new Row(
+      //                 mainAxisAlignment: MainAxisAlignment.center,
+      //                 children: <Widget>[
+      //                   new IconButton(
+      //                       onPressed: (){ print("icon");},
+      //                       icon: new Container(
+      //                         child: new Column(
+      //                           children: <Widget>[
+      //                             new Icon(Icons.favorite, size: 18.0, color: AppConstant.fontColor,),
+      //                             new Text("感谢", style: new TextStyle(fontSize: 10.0, color: AppConstant.fontColor),)
+      //                           ],
+      //                         ),
+      //                         margin: const EdgeInsets.only(),
+      //                         height: 30.0,
+      //                       )
+      //                   ),
+      //                   new IconButton(
+      //                       onPressed: (){ print("icon");},
+      //                       icon: new Container(
+      //                         child: new Column(
+      //                           children: <Widget>[
+      //                             new Icon(Icons.star, size: 18.0, color: AppConstant.fontColor,),
+      //                             new Text("收藏", style: new TextStyle(fontSize: 10.0, color: AppConstant.fontColor),)
+      //                           ],
+      //                         ),
+      //                         margin: const EdgeInsets.only(),
+      //                         height: 30.0,
+      //                       )
+      //                   ),
+      //                   new IconButton(
+      //                       onPressed: (){ print("icon");},
+      //                       icon: new Container(
+      //                         child: new Column(
+      //                           children: <Widget>[
+      //                             new Icon(Icons.mode_comment, size: 18.0, color: AppConstant.fontColor,),
+      //                             new Text("345", style: new TextStyle(fontSize: 10.0, color: AppConstant.fontColor),)
+      //                           ],
+      //                         ),
+      //                         margin: const EdgeInsets.only(),
+      //                         height: 30.0,
+      //                       )
+      //                   ),
+      //                 ],
+      //               )
+      //           )
+      //         ],
+      //       ),
+      //       color: AppConstant.themeColor,
+      //     )
+      // ),
     );
   }
 }
