@@ -8,6 +8,7 @@ import 'package:butcher/page/Login/login.dart';
 import 'package:butcher/page/Login/experience.dart';
 import 'package:butcher/page/Home/NewsDetail.dart';
 import 'package:butcher/model/News/Article.dart';
+import 'package:butcher/page/webView/webView.dart';
 
 
 class NavigatorUtils {
@@ -76,5 +77,12 @@ class NavigatorUtils {
     ));
   }
 
+  static goWebview(BuildContext context, String url, String title){
+    Navigator.of(context).push(new MaterialPageRoute(
+        builder: (context) {
+          return WebviewPage(url, title);
+        }
+    ));
+  }
 
 }

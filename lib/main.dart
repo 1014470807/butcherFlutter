@@ -9,6 +9,8 @@ import 'package:redux/redux.dart';
 import 'package:butcher/redux/butcher_state.dart';
 import 'package:butcher/model/User/User.dart';
 import 'package:butcher/page/My/MyPage.dart';
+import 'package:flutter_bugly/flutter_bugly.dart';
+import 'package:butcher/page/update/update_dialog.dart';
 // import 'package:mop/mop.dart';
 
 void main(){
@@ -23,7 +25,11 @@ void main(){
 //    DeviceOrientation.portraitUp,
 //    DeviceOrientation.portraitDown
 //  ]);
-  runApp(MyApp());
+  WidgetsFlutterBinding.ensureInitialized(); //必须要添加这个进行初始化 否则下面会错误
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
+      .then((_) {
+    runApp(MyApp());
+  });
 }
 
 class MyApp extends StatelessWidget {
@@ -61,11 +67,65 @@ class MyAppState extends State<MyAppFul> with HttpErrorListener {
       initialState: new BUTCHERState()
   );
 
-
+  String _platformVersion = 'Unknown';
+  GlobalKey<UpdateDialogState> _dialogKey = new GlobalKey();
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
+    FlutterBugly.init(
+      androidAppId: "cbf1ea33f4",
+      iOSAppId: "cbf1ea33f4",
+    ).then((_result) {
+      setState(() {
+        _platformVersion = _result.message;
+        print(_result.appId);
+      });
+    });
+    FlutterBugly.onCheckUpgrade.listen((_upgradeInfo) {
+      _showUpdateDialog(_upgradeInfo.newFeature, _upgradeInfo.apkUrl,
+          _upgradeInfo.upgradeType == 2);
+    });
+    FlutterBugly.setUserId("user id");
+    FlutterBugly.putUserData(key: "key", value: "value");
+    int tag = 9527;
+    FlutterBugly.setUserTag(tag);
+  }
+
+  void _showUpdateDialog(String version, String url, bool isForceUpgrade) {
+    showDialog(
+      barrierDismissible: false,
+      context: context,
+      builder: (_) => _buildDialog(version, url, isForceUpgrade),
+    );
+  }
+
+  void _checkUpgrade() {
+    print("获取更新中。。。");
+    FlutterBugly.checkUpgrade();
+  }
+
+  Widget _buildDialog(String version, String url, bool isForceUpgrade) {
+    return WillPopScope(
+        onWillPop: () async => isForceUpgrade,
+        child: UpdateDialog(
+          key: _dialogKey,
+          version: version,
+          onClickWhenDownload: (_msg) {
+            //提示不要重复下载
+          },
+          onClickWhenNotDownload: () {
+            //下载apk，完成后打开apk文件，建议使用dio+open_file插件
+            print('需要更新');
+          },
+        ));
+  }
+
+  //dio可以监听下载进度，调用此方法
+  void _updateProgress(_progress) {
+    setState(() {
+      _dialogKey.currentState.progress = _progress;
+    });
   }
 
   // Future<void> init() async {

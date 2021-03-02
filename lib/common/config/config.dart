@@ -19,5 +19,5 @@ class Config {
   static const USER_PROVINCE = "USER_PROVINCE";
   static const USER_CITY = "USER_CITY";
   static const USER_DISTRICT = "USER_DISTRICT";
-
+  static const YINSI = "YINSI";
 }

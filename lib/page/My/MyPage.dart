@@ -263,7 +263,7 @@ class _MyPageState extends State<MyPage> with StyleBase {
                 new Container(
                   width: MediaQuery.of(context).size.width / 4,
                   child: new FlatButton(
-                      onPressed: (){ToastUtils.showToast("功能暂未开放");},
+                      onPressed: (){NavigatorUtils.goWebview(context, 'https://app.butcherhelp.cn/book/', '隐私政策');},
                       child: new Container(
                         child: new Column(
                           children: <Widget>[
@@ -276,162 +276,162 @@ class _MyPageState extends State<MyPage> with StyleBase {
                               ),
                             ),
                             new Container(
-                              child: new Text("我的书架", style: new TextStyle(color: AppConstant.theme2Color, fontSize: 14.0),),
+                              child: new Text("隐私政策", style: new TextStyle(color: AppConstant.theme2Color, fontSize: 14.0),),
                             )
                           ],
                         ),
                       )
                   ),
                 ),
-                new Container(
-                  width: MediaQuery.of(context).size.width / 4,
-                  child: new FlatButton(
-                      onPressed: (){ToastUtils.showToast("功能暂未开放");},
-                      child: new Container(
-                        child: new Column(
-                          children: <Widget>[
-                            new Container(
-                              margin: const EdgeInsets.only(bottom: 6.0),
-                              child: new CircleAvatar(
-                                radius: 20.0,
-                                child: new Icon(Icons.flash_on, color: Colors.white),
-                                backgroundColor: Colors.blue,
-                              ),
-                            ),
-                            new Container(
-                              child: new Text("我的 Live", style: new TextStyle(color: AppConstant.theme2Color, fontSize: 14.0)),
-                            )
-                          ],
-                        ),
-                      )
-                  ),
-                ),
-                new Container(
-                  width: MediaQuery.of(context).size.width / 4,
-                  child: new FlatButton(
-                      onPressed: (){ToastUtils.showToast("功能暂未开放");},
-                      child: new Container(
-                        child: new Column(
-                          children: <Widget>[
-                            new Container(
-                              margin: const EdgeInsets.only(bottom: 6.0),
-                              child: new CircleAvatar(
-                                radius: 20.0,
-                                child: new Icon(Icons.free_breakfast, color: Colors.white),
-                                backgroundColor: new Color(0xFFA68F52),
-                              ),
-                            ),
-                            new Container(
-                              child: new Text("私家课", style: new TextStyle(color: AppConstant.theme2Color, fontSize: 14.0)),
-                            )
-                          ],
-                        ),
-                      )
-                  ),
-                ),
-                new Container(
-                  width: MediaQuery.of(context).size.width / 4,
-                  child: new FlatButton(
-                      onPressed: (){ToastUtils.showToast("功能暂未开放");},
-                      child: new Container(
-                        child: new Column(
-                          children: <Widget>[
-                            new Container(
-                              margin: const EdgeInsets.only(bottom: 6.0),
-                              child: new CircleAvatar(
-                                radius: 20.0,
-                                child: new Icon(Icons.attach_money, color: Colors.white),
-                                backgroundColor: new Color(0xFF355A9B),
-                              ),
-                            ),
-                            new Container(
-                              child: new Text("付费咨询", style: new TextStyle(color: AppConstant.theme2Color, fontSize: 14.0)),
-                            )
-                          ],
-                        ),
-                      )
-                  ),
-                ),
+                // new Container(
+                //   width: MediaQuery.of(context).size.width / 4,
+                //   child: new FlatButton(
+                //       onPressed: (){ToastUtils.showToast("功能暂未开放");},
+                //       child: new Container(
+                //         child: new Column(
+                //           children: <Widget>[
+                //             new Container(
+                //               margin: const EdgeInsets.only(bottom: 6.0),
+                //               child: new CircleAvatar(
+                //                 radius: 20.0,
+                //                 child: new Icon(Icons.flash_on, color: Colors.white),
+                //                 backgroundColor: Colors.blue,
+                //               ),
+                //             ),
+                //             new Container(
+                //               child: new Text("我的 Live", style: new TextStyle(color: AppConstant.theme2Color, fontSize: 14.0)),
+                //             )
+                //           ],
+                //         ),
+                //       )
+                //   ),
+                // ),
+                // new Container(
+                //   width: MediaQuery.of(context).size.width / 4,
+                //   child: new FlatButton(
+                //       onPressed: (){ToastUtils.showToast("功能暂未开放");},
+                //       child: new Container(
+                //         child: new Column(
+                //           children: <Widget>[
+                //             new Container(
+                //               margin: const EdgeInsets.only(bottom: 6.0),
+                //               child: new CircleAvatar(
+                //                 radius: 20.0,
+                //                 child: new Icon(Icons.free_breakfast, color: Colors.white),
+                //                 backgroundColor: new Color(0xFFA68F52),
+                //               ),
+                //             ),
+                //             new Container(
+                //               child: new Text("私家课", style: new TextStyle(color: AppConstant.theme2Color, fontSize: 14.0)),
+                //             )
+                //           ],
+                //         ),
+                //       )
+                //   ),
+                // ),
+                // new Container(
+                //   width: MediaQuery.of(context).size.width / 4,
+                //   child: new FlatButton(
+                //       onPressed: (){ToastUtils.showToast("功能暂未开放");},
+                //       child: new Container(
+                //         child: new Column(
+                //           children: <Widget>[
+                //             new Container(
+                //               margin: const EdgeInsets.only(bottom: 6.0),
+                //               child: new CircleAvatar(
+                //                 radius: 20.0,
+                //                 child: new Icon(Icons.attach_money, color: Colors.white),
+                //                 backgroundColor: new Color(0xFF355A9B),
+                //               ),
+                //             ),
+                //             new Container(
+                //               child: new Text("付费咨询", style: new TextStyle(color: AppConstant.theme2Color, fontSize: 14.0)),
+                //             )
+                //           ],
+                //         ),
+                //       )
+                //   ),
+                // ),
               ],
             ),
           ),
-          new Container(
-            margin: const EdgeInsets.only(top: 16.0),
-            child: new Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: <Widget>[
-                new Container(
-                  width: MediaQuery.of(context).size.width / 4,
-                  child: new FlatButton(
-                      onPressed: (){ToastUtils.showToast("功能暂未开放");},
-                      child: new Container(
-                        child: new Column(
-                          children: <Widget>[
-                            new Container(
-                              margin: const EdgeInsets.only(bottom: 6.0),
-                              child: new CircleAvatar(
-                                radius: 20.0,
-                                child: new Icon(Icons.shop, color: Colors.white),
-                                backgroundColor: new Color(0xFF088DB4),
-                              ),
-                            ),
-                            new Container(
-                              child: new Text("已购", style: new TextStyle(color: AppConstant.theme2Color, fontSize: 14.0),),
-                            )
-                          ],
-                        ),
-                      )
-                  ),
-                ),
-                new Container(
-                  width: MediaQuery.of(context).size.width / 4,
-                  child: new FlatButton(
-                      onPressed: (){ToastUtils.showToast("功能暂未开放");},
-                      child: new Container(
-                        child: new Column(
-                          children: <Widget>[
-                            new Container(
-                              margin: const EdgeInsets.only(bottom: 6.0),
-                              child: new CircleAvatar(
-                                radius: 20.0,
-                                child: new Icon(Icons.radio, color: Colors.white),
-                                backgroundColor: Colors.blue,
-                              ),
-                            ),
-                            new Container(
-                              child: new Text("余额礼卷", style: new TextStyle(color: AppConstant.theme2Color, fontSize: 14.0)),
-                            )
-                          ],
-                        ),
-                      )
-                  ),
-                ),
-                new Container(
-                  width: MediaQuery.of(context).size.width / 4,
-                  child: new FlatButton(
-                      onPressed: (){ToastUtils.showToast("功能暂未开放");},
-                      child: new Container(
-                        child: new Column(
-                          children: <Widget>[
-                            new Container(
-                              margin: const EdgeInsets.only(bottom: 6.0),
-                              child: new CircleAvatar(
-                                radius: 20.0,
-                                child: new Icon(Icons.wifi_tethering, color: Colors.white),
-                                backgroundColor: new Color(0xFF029A3F),
-                              ),
-                            ),
-                            new Container(
-                              child: new Text("服务", style: new TextStyle(color: AppConstant.theme2Color, fontSize: 14.0)),
-                            )
-                          ],
-                        ),
-                      )
-                  ),
-                ),
-              ],
-            ),
-          )
+          // new Container(
+          //   margin: const EdgeInsets.only(top: 16.0),
+          //   child: new Row(
+          //     mainAxisAlignment: MainAxisAlignment.start,
+          //     children: <Widget>[
+          //       new Container(
+          //         width: MediaQuery.of(context).size.width / 4,
+          //         child: new FlatButton(
+          //             onPressed: (){ToastUtils.showToast("功能暂未开放");},
+          //             child: new Container(
+          //               child: new Column(
+          //                 children: <Widget>[
+          //                   new Container(
+          //                     margin: const EdgeInsets.only(bottom: 6.0),
+          //                     child: new CircleAvatar(
+          //                       radius: 20.0,
+          //                       child: new Icon(Icons.shop, color: Colors.white),
+          //                       backgroundColor: new Color(0xFF088DB4),
+          //                     ),
+          //                   ),
+          //                   new Container(
+          //                     child: new Text("已购", style: new TextStyle(color: AppConstant.theme2Color, fontSize: 14.0),),
+          //                   )
+          //                 ],
+          //               ),
+          //             )
+          //         ),
+          //       ),
+          //       new Container(
+          //         width: MediaQuery.of(context).size.width / 4,
+          //         child: new FlatButton(
+          //             onPressed: (){ToastUtils.showToast("功能暂未开放");},
+          //             child: new Container(
+          //               child: new Column(
+          //                 children: <Widget>[
+          //                   new Container(
+          //                     margin: const EdgeInsets.only(bottom: 6.0),
+          //                     child: new CircleAvatar(
+          //                       radius: 20.0,
+          //                       child: new Icon(Icons.radio, color: Colors.white),
+          //                       backgroundColor: Colors.blue,
+          //                     ),
+          //                   ),
+          //                   new Container(
+          //                     child: new Text("余额礼卷", style: new TextStyle(color: AppConstant.theme2Color, fontSize: 14.0)),
+          //                   )
+          //                 ],
+          //               ),
+          //             )
+          //         ),
+          //       ),
+          //       new Container(
+          //         width: MediaQuery.of(context).size.width / 4,
+          //         child: new FlatButton(
+          //             onPressed: (){ToastUtils.showToast("功能暂未开放");},
+          //             child: new Container(
+          //               child: new Column(
+          //                 children: <Widget>[
+          //                   new Container(
+          //                     margin: const EdgeInsets.only(bottom: 6.0),
+          //                     child: new CircleAvatar(
+          //                       radius: 20.0,
+          //                       child: new Icon(Icons.wifi_tethering, color: Colors.white),
+          //                       backgroundColor: new Color(0xFF029A3F),
+          //                     ),
+          //                   ),
+          //                   new Container(
+          //                     child: new Text("服务", style: new TextStyle(color: AppConstant.theme2Color, fontSize: 14.0)),
+          //                   )
+          //                 ],
+          //               ),
+          //             )
+          //         ),
+          //       ),
+          //     ],
+          //   ),
+          // )
         ],
       ),
     );
@@ -949,7 +949,8 @@ class _MyPageState extends State<MyPage> with StyleBase {
                                         FlatButton(
                                           child: Text('确认'),
                                           onPressed: () async {
-                                            print(await LocalStorage.get(Config.TOKEN_KEY));
+                                            // print(await LocalStorage.get(Config.TOKEN_KEY));
+                                            // Navigator.pop(context);
                                             UserDao.clearLogin(store.state.userInfo.userid).then((res) async {
                                               // DataJson data = DataJson.fromMap(res);
                                               print(jsonEncode(res));
@@ -962,7 +963,6 @@ class _MyPageState extends State<MyPage> with StyleBase {
                                               Navigator.pop(context);
                                               setState(() {});
                                             });
-                                            Navigator.pop(context);
                                           },
                                         ),
                                       ],

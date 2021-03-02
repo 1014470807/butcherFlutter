@@ -28,7 +28,7 @@ final LoginReducer = combineReducers<bool>([
 ]);
 
 bool _loginResult(bool result, LoginSuccessAction action) {
-  AppConstant.tabIndex=4;
+  AppConstant.tabIndex=0;
   Navigator.pushNamedAndRemoveUntil(action.context,IndexPage.sName,ModalRoute.withName('/'));
   return action.success;
 }

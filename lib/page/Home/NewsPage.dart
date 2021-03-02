@@ -4,6 +4,7 @@ import 'package:butcher/common/public/public.dart';
 import 'package:butcher/common/dao/News_dao.dart';
 import 'package:butcher/components/widget_load_header.dart';
 import 'package:butcher/model/News/Article.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter_easyrefresh/easy_refresh.dart';
 import 'package:butcher/components/widget_load_footer.dart';
 import 'package:flutter_html/flutter_html.dart';
@@ -22,7 +23,7 @@ class _NewsPageState extends State<NewsPage> with AutomaticKeepAliveClientMixin,
   EasyRefreshController _Controller;
 
   getData() {
-    NewsDao.article(page).then((res){
+    NewsDao.article(page).then((res) async{
       DataJsonArray data = DataJsonArray.fromMap(res);
       if(data.code==100){
         data.data.forEach((item){
@@ -37,6 +38,13 @@ class _NewsPageState extends State<NewsPage> with AutomaticKeepAliveClientMixin,
           list=list;
           _loading=false;
         });
+        String YINSI = await LocalStorage.get(Config.YINSI);
+        print(1111);
+        print(YINSI);
+        if (YINSI == null) {
+          LocalStorage.save(Config.YINSI, 'true');
+          this._goWebview();
+        }
         print(this.page);
         print(jsonEncode(list));
       }
@@ -64,6 +72,47 @@ class _NewsPageState extends State<NewsPage> with AutomaticKeepAliveClientMixin,
     // TODO: implement didChangeDependencies
     super.didChangeDependencies();
   }
+
+  Future<void> _goWebview() async {
+    return showDialog<Null>(
+        context: context,
+        barrierDismissible: true,
+        builder: (BuildContext context) {
+          return new AlertDialog(
+            title: Container(
+              child: Text.rich(TextSpan(
+                children: [
+                  TextSpan(text: '亲爱的用户，欢迎使用屠夫服务！为了保障您的个人信息权益，请您在使用我们的服务之前，务必仔细阅读我们的', style: new TextStyle(fontSize: 17.0)),
+                  TextSpan(
+                    text: '《隐私政策》',
+                    style: new TextStyle(fontSize: 17.0, color: Colors.blueAccent),
+                    recognizer: TapGestureRecognizer()
+                    ..onTap = () {
+                      NavigatorUtils.goWebview(context, 'https://app.butcherhelp.cn/book/', '隐私政策');
+                    }
+                  )
+                ]
+              )),
+            ),
+            actions: <Widget>[
+              new FlatButton(
+                child: new Text('取消'),
+                onPressed: (){
+                  Navigator.of(context).pop();
+                },
+              ),
+              new FlatButton(
+                child: new Text('确定'),
+                onPressed: (){
+                  Navigator.of(context).pop();
+                },
+              )
+            ],
+          );
+        }
+    );
+  }
+
   Widget wordsCard(Article item) {
     Widget markWidget;
     markWidget = new Row(
